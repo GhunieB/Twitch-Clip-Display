@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twitch Clip Display</title>
+</head>
+<body>
+    <h1>Display Twitch Clip</h1>
+    <form id="clipForm">
+        <label for="clipURL">Enter Twitch Clip URL:</label>
+        <input type="text" id="clipURL" name="clipURL">
+        <button type="button" onclick="displayClip()">Display Clip</button>
+    </form>
+    <div id="clipDisplay"></div>
+
+    <script>
+        function displayClip() {
+            var clipURL = document.getElementById("clipURL").value;
+            var iframe = document.createElement("iframe");
+            iframe.setAttribute("src", clipURL);
+            iframe.setAttribute("width", "800");
+            iframe.setAttribute("height", "450");
+            document.getElementById("clipDisplay").innerHTML = "";
+            document.getElementById("clipDisplay").appendChild(iframe);
+        }
+    </script>
+</body>
+</html>
