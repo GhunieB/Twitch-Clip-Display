@@ -12,15 +12,15 @@
     </form>
     <div id="clipDisplay"></div>
 
-    <script src="https://embed.twitch.tv/embed/v1.js"></script>
     <script>
         function displayClip() {
             var clipID = document.getElementById("clipURL").value;
-            new Twitch.Player("clipDisplay", {
-                width: 800,
-                height: 450,
-                video: 'https://clips.twitch.tv/embed?clip=' + clipID
-            });
+            var iframe = document.createElement("iframe");
+            iframe.setAttribute("src", "https://clips.twitch.tv/embed?clip=" + clipID);
+            iframe.setAttribute("width", "800");
+            iframe.setAttribute("height", "450");
+            document.getElementById("clipDisplay").innerHTML = "";
+            document.getElementById("clipDisplay").appendChild(iframe);
         }
     </script>
 </body>
