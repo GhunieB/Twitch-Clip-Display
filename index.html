@@ -6,21 +6,21 @@
 <body>
     <h1>Display Twitch Clip</h1>
     <form id="clipForm">
-        <label for="clipURL">Enter Twitch Clip URL:</label>
+        <label for="clipURL">Enter Twitch Clip ID:</label>
         <input type="text" id="clipURL" name="clipURL">
         <button type="button" onclick="displayClip()">Display Clip</button>
     </form>
     <div id="clipDisplay"></div>
 
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
     <script>
         function displayClip() {
-            var clipURL = document.getElementById("clipURL").value;
-            var iframe = document.createElement("iframe");
-            iframe.setAttribute("src", clipURL);
-            iframe.setAttribute("width", "800");
-            iframe.setAttribute("height", "450");
-            document.getElementById("clipDisplay").innerHTML = "";
-            document.getElementById("clipDisplay").appendChild(iframe);
+            var clipID = document.getElementById("clipURL").value;
+            new Twitch.Player("clipDisplay", {
+                width: 800,
+                height: 450,
+                video: clipID
+            });
         }
     </script>
 </body>
