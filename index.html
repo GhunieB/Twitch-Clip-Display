@@ -19,12 +19,12 @@
             iframe.setAttribute("src", "https://clips.twitch.tv/embed?clip=" + clipID);
             iframe.setAttribute("width", "800");
             iframe.setAttribute("height", "450");
-            iframe.setAttribute("allowfullscreen", "true"); // Allow fullscreen mode
-            iframe.setAttribute("frameborder", "0"); // Remove iframe border
-            iframe.setAttribute("scrolling", "no"); // Disable scrolling inside iframe
+            iframe.setAttribute("allowfullscreen", "true");
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute("scrolling", "no");
 
-            // Set the GitHub Pages domain as the parent origin for embedding within iframes
-            iframe.setAttribute("parent", "https://GhunieB.github.io/Twitch-Clip-Display");
+            // Specify the referrer for embedding in an iframe on your site
+            iframe.setAttribute("referrer", "no-referrer-when-downgrade");
 
             document.getElementById("clipDisplay").innerHTML = "";
             document.getElementById("clipDisplay").appendChild(iframe);
